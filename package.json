@@ -14,10 +14,30 @@
   "contributes": {
     "commands": [
       {
-        "command": "luaconverter.helloWorld",
-        "title": "Hello World"
+        "command": "luaconverter.tolua",
+        "title": "转换为Lua",
+        "category": "LuaConverter"
+      },
+      {
+        "command": "luaconverter.tojson",
+        "title": "转换为Json",
+        "category": "LuaConverter"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "luaconverter.tolua",
+          "when": "resourceLangId == json",
+          "group": "LuaConverter"
+        },
+        {
+          "command": "luaconverter.tojson",
+          "when": "resourceLangId == lua",
+          "group": "LuaConverter"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

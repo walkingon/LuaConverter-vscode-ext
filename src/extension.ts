@@ -9,20 +9,17 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "luaconverter" is now active!');
+	console.log('"luaconverter" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('luaconverter.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from LuaConverter!');
-		const formated = format("{ x: 1 }");
-		const parsed = parse('return { x = 1 }'); // { x: 1 }
+	const disposable1 = vscode.commands.registerCommand('luaconverter.tolua', () => {
+		vscode.window.showInformationMessage('luaconverter.tolua!');
 	});
 
-	context.subscriptions.push(disposable);
+	const disposable2 = vscode.commands.registerCommand('luaconverter.tojson', () => {
+		vscode.window.showInformationMessage('luaconverter.tojson!');
+	});
+
+	context.subscriptions.push(disposable1, disposable2);
 }
 
 // This method is called when your extension is deactivated
