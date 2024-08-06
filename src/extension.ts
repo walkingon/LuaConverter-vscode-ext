@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const disposable1 = vscode.commands.registerCommand('luaconverter.tolua', () => {
 		const editors = vscode.window.visibleTextEditors;
 		if (editors.length === 0) {
-			console.log('当前没有可见的文本编辑器');
+			vscode.window.showInformationMessage('当前没有可见的文本编辑器');
 		} else if (editors.length === 1) {
 			const content = editors[0].document.getText();
 			const result = format(JSON.parse(content));
@@ -27,12 +27,28 @@ export function activate(context: vscode.ExtensionContext) {
 				vscode.window.showInformationMessage('转换完成!');
 			});
 		} else {
-			console.log('当前有多个可见的文本编辑器，建议用户关闭并列的其它Tab页面');
+			vscode.window.showInformationMessage('请先关闭并列的其它编辑器');
 		}
 	});
 
 	const disposable2 = vscode.commands.registerCommand('luaconverter.tojson', () => {
-		vscode.window.showInformationMessage('luaconverter.tojson!');
+		// 获取选中的部分
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			const selection = editor.selection;
+			const text = editor.document.getText(selection);
+			const result = parse(text);
+			// 并列新建一个临时文档，并将result写入其中
+			vscode.workspace.openTextDocument({
+				language: 'json',
+				content: JSON.stringify(result, null, 4)
+			}).then(doc => {
+				vscode.window.showTextDocument(doc);
+				vscode.window.showInformationMessage('转换完成!');
+			});
+		}else{
+			vscode.window.showInformationMessage('没有激活的编辑器');
+		}
 	});
 
 	context.subscriptions.push(disposable1, disposable2);

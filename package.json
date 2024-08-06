@@ -20,7 +20,7 @@
       },
       {
         "command": "luaconverter.tojson",
-        "title": "转换为Json",
+        "title": "转换选中Table为Json",
         "category": "LuaConverter"
       }
     ],
