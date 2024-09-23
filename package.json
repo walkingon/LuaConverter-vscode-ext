@@ -2,7 +2,7 @@
   "name": "luaconverter",
   "displayName": "LuaConverter",
   "description": "Convert Json to or from Lua table.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "kouyaqi",
   "icon": "icon.png",
   "homepage": "https://github.com/walkingon/LuaConverter-vscode-ext",
@@ -11,7 +11,7 @@
     "url": "https://github.com/walkingon/LuaConverter-vscode-ext"
   },
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.8.0"
   },
   "categories": [
     "Other"
@@ -63,7 +63,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
-    "@types/vscode": "^1.89.0",
+    "@types/vscode": "^1.8.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.11.0",
     "@vscode/test-cli": "^0.0.9",
