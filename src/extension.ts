@@ -36,7 +36,11 @@ export function activate(context: vscode.ExtensionContext) {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			const selection = editor.selection;
-			const text = editor.document.getText(selection);
+			let text = editor.document.getText(selection);
+			//检查text是否以“return”开头，若否则添加return前缀
+			if (!text.startsWith('return')) {
+				text = 'return ' + text;
+			}
 			const result = parse(text);
 			// 并列新建一个临时文档，并将result写入其中
 			vscode.workspace.openTextDocument({
