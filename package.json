@@ -2,7 +2,7 @@
   "name": "luaconverter",
   "displayName": "LuaConverter",
   "description": "Convert Json to or from Lua table.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "kouyaqi",
   "icon": "icon.png",
   "homepage": "https://github.com/walkingon/LuaConverter-vscode-ext",
@@ -11,7 +11,7 @@
     "url": "https://github.com/walkingon/LuaConverter-vscode-ext"
   },
   "engines": {
-    "vscode": "^1.8.0"
+    "vscode": "^1.125.0"
   },
   "categories": [
     "Other"
@@ -57,23 +57,28 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "check-types": "tsc --noEmit",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src",
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.7",
-    "@types/node": "20.x",
-    "@types/vscode": "^1.8.0",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.11.0",
-    "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0",
-    "esbuild": "^0.25.0",
-    "eslint": "^8.57.0",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.4.5"
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.15.0",
+    "@types/vscode": "^1.125.0",
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "@typescript-eslint/parser": "^8.65.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.8.0",
+    "npm-run-all": "^1.1.3",
+    "typescript": "~5.9.3"
   },
   "dependencies": {
     "lua-json": "^1.0.1"
+  },
+  "overrides": {
+    "diff": "9.0.0",
+    "serialize-javascript": "7.0.7",
+    "brace-expansion": "5.0.8"
   }
 }
